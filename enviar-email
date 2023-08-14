@@ -1,0 +1,290 @@
+import pyautogui
+import time
+import pyautogui
+import time
+import pyperclip
+time.sleep(1)
+
+with open('ComEmail.txt', 'r') as textos:
+    linhas = [linha.strip() for linha in textos]
+
+loop_concluido = False
+
+for texto in linhas:
+    # Encontra a imagem "UC.png" na tela e clica nela
+    foto = pyautogui.locateOnScreen('UC.png')
+    foto_move = pyautogui.center(foto)
+    pyautogui.moveTo(foto_move)
+    pyautogui.moveRel(30, 0)
+    pyautogui.click()
+    
+    # Digita o texto correspondente à linha atual
+    pyautogui.write(texto)
+    pyautogui.press('enter')
+    print("Feito Enter e digitando")
+    # Inicializa a variável de controle como False
+    time.sleep(3)
+
+    loop_concluido = False
+    print("Loop False")
+    testar = pyautogui.locateOnScreen('testar-1.png')
+    while not loop_concluido:
+            print("testou se vai ter loop")
+            testar = pyautogui.locateOnScreen('testar-1.png')
+            print("abriu o not loop_concludo")
+            # Procura pelas imagens "CHECK.png", "CHECK-GREEN.png" e "Ok.png"
+            check = pyautogui.locateOnScreen('CHECK.png')
+            print("procurar imagem check")
+            check_green = pyautogui.locateOnScreen('Uai.png')
+            print("procurar imagem uai")
+            ok_button = pyautogui.locateOnScreen('Ok.png')
+            print("procurar imagem ok")
+
+            if testar is not None:
+                if check_green is not None:
+                    # Se a imagem 'CHECK-GREEN.png' for encontrada, executa a ação desejada
+
+                    check_green_move = pyautogui.center(check_green)
+
+                    pyautogui.moveTo(check_green_move)
+
+                    pyautogui.moveRel(0, 0)
+                    pyautogui.click()
+
+                    print("marcou com green")
+
+                
+                if check is not None:
+                    # Se a imagem 'CHECK.png' for encontrada, executa a ação desejada
+                    check_move = pyautogui.center(check)
+                    pyautogui.moveTo(check_move)
+                    pyautogui.moveRel(0, 0)
+                    pyautogui.click()
+                    print("marcou sem green")
+
+                if check is None and check_green is None:
+                    # Se a imagem 'Ok.png' for encontrada, executa a ação desejada
+                    ok_button_move = pyautogui.center(ok_button)
+                    pyautogui.moveTo(ok_button_move)
+                    pyautogui.moveRel(0, 0)
+                    pyautogui.click()
+                    time.sleep(0.5)
+                    print("ok")
+                    loop_concluido = True
+                    break
+            else:
+                break    
+    time.sleep(1.5)
+
+    quadro = pyautogui.locateOnScreen('whats.png')
+    quadro_move = pyautogui.center(quadro)
+    pyautogui.moveTo(quadro_move)
+    pyautogui.click()
+
+    numero = pyautogui.locateOnScreen('celular.png')
+    numero_move = pyautogui.center(numero)
+    pyautogui.moveTo(numero_move)
+    pyautogui.moveRel(30,-1,duration=0.5)
+    pyautogui.click(clicks=3)
+    time.sleep(0.5)
+    pyautogui.hotkey('ctrl', 'c')
+
+    time.sleep(0.5)
+
+    referencia = pyautogui.locateOnScreen('ref.png')
+    referencia_move = pyautogui.center(referencia)
+    pyautogui.moveTo(referencia_move)
+    pyautogui.moveRel(0,45)
+    pyautogui.click()
+    pyautogui.hotkey('space')
+    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey('space')
+
+    time.sleep(0.5)
+
+    numero = pyautogui.locateOnScreen('celular.png')
+    numero_move = pyautogui.center(numero)
+    pyautogui.moveTo(numero_move)
+    pyautogui.moveRel(50,-1,duration=0.5)
+    pyautogui.click(clicks=3)
+    time.sleep(0.5)
+    pyautogui.hotkey('ctrl', 'c')
+
+    time.sleep(0.5)
+
+    referencia = pyautogui.locateOnScreen('ref.png')
+    referencia_move = pyautogui.center(referencia)
+    pyautogui.moveTo(referencia_move)
+    pyautogui.moveRel(0,45)
+    pyautogui.click()
+    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey('space')
+
+    time.sleep(0.5)
+
+    numero = pyautogui.locateOnScreen('celular.png')
+    numero_move = pyautogui.center(numero)
+    pyautogui.moveTo(numero_move)
+    pyautogui.moveRel(90,-1)
+    pyautogui.click(clicks=3)
+    time.sleep(0.5)
+    pyautogui.hotkey('ctrl', 'c')
+
+    time.sleep(1)
+
+    referencia = pyautogui.locateOnScreen('ref.png')
+    referencia_move = pyautogui.center(referencia)
+    pyautogui.moveTo(referencia_move)
+    pyautogui.moveRel(0,45)
+    pyautogui.click()
+    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey('enter')
+
+    time.sleep(2)
+    testar_10 = pyautogui.locateOnScreen('naotem.png')
+    print("inicia imagen")
+
+    if testar_10 is not None:
+        testar_10_move = pyautogui.center(testar_10)
+        pyautogui.moveTo(testar_10_move)
+        pyautogui.moveRel(0,100)
+        pyautogui.click()
+        print("achou imagem")
+        time.sleep(1)
+        with open('SemWhats.txt', 'a') as file:
+            pyautogui.moveTo(foto_move)
+            pyautogui.moveRel(30, 0)
+            pyautogui.click(clicks=3, interval=0)
+            pyautogui.hotkey('ctrl', 'c')
+            teste = pyperclip.paste()
+            file.write(f"Sem Whats - {teste}\n") 
+        limpar = pyautogui.locateOnScreen('limpar1.png')
+        limpar_linha = pyautogui.center(limpar)
+        pyautogui.moveTo(limpar_linha)
+        pyautogui.moveRel(0, 0)
+        pyautogui.click()
+        loop_concluido = True
+        continue
+    else:
+        print("nao achou")
+    with open('mensagem' ,'r') as email:
+         emails = email.read()
+    print(emails)
+    referencia2 = pyautogui.locateOnScreen('ref2.png')
+    referencia2_move = pyautogui.center(referencia2)
+    pyautogui.moveTo(referencia2_move)
+    pyautogui.moveRel(-80,-2)
+    pyautogui.click()
+    pyautogui.write(emails)
+    time.sleep(1)
+
+    quadro = pyautogui.locateOnScreen('limpar.png')
+    quadro_move = pyautogui.center(quadro)
+    pyautogui.moveTo(quadro_move)
+    pyautogui.click()
+
+    time.sleep(4)
+
+    foto1 = pyautogui.locateOnScreen('newcheck.png')
+    foto1_move = pyautogui.center(foto1)
+    pyautogui.moveTo(foto1_move)
+    pyautogui.moveRel(-30,0)
+    pyautogui.click()
+
+    time.sleep(0.5)
+
+    foto2 = pyautogui.locateOnScreen('cadastro_cliente.png')
+    foto2_move = pyautogui.center(foto2)
+    pyautogui.moveTo(foto2_move)
+    pyautogui.moveRel(0,0)
+    pyautogui.click()
+    time.sleep(0.5)
+
+    foto3 = pyautogui.locateOnScreen('cliente-green.png')
+    foto3_move = pyautogui.center(foto3)
+    pyautogui.moveTo(foto3_move)
+    pyautogui.moveRel(0,43)
+    pyautogui.click(clicks=2)
+
+    time.sleep(0.2)
+
+    foto1 = pyautogui.locateOnScreen('newcheck.png')
+    foto1_move = pyautogui.center(foto1)
+    pyautogui.moveTo(foto1_move)
+    pyautogui.moveRel(0,0)
+    pyautogui.click()
+
+    time.sleep(4)
+
+    email = pyautogui.locateOnScreen('email.png')
+    email_move = pyautogui.center(email)
+    pyautogui.moveTo(email_move)
+    pyautogui.moveRel(300,-2)
+    pyautogui.click(clicks=3, interval=0)
+    pyautogui.hotkey('ctrl', 'c')
+    time.sleep(1)
+
+    email = pyautogui.locateOnScreen('email.png')
+    email_move = pyautogui.center(email)
+    pyautogui.moveTo(email_move)
+    pyautogui.moveRel(-5,-563)
+    pyautogui.click(clicks=2, interval=0.5)
+
+    referencia3 = pyautogui.locateOnScreen('ref3.png')
+    referencia3_move = pyautogui.center(referencia3)
+    pyautogui.moveTo(referencia3_move)
+    pyautogui.moveRel(50,20)
+    pyautogui.click(clicks=2)
+    pyautogui.hotkey('ctrl', 'v')
+
+    numero = pyautogui.locateOnScreen('celular.png')
+    numero_move = pyautogui.center(numero)
+    pyautogui.moveTo(numero_move)
+    pyautogui.moveRel(-20,-70)
+    pyautogui.click(clicks=3)
+    time.sleep(0.3)
+    pyautogui.hotkey('ctrl', 'c')
+    time.sleep(0.3)
+    referencia3 = pyautogui.locateOnScreen('ref3.png')
+    referencia3_move = pyautogui.center(referencia3)
+    pyautogui.moveTo(referencia3_move)
+    pyautogui.moveRel(120,0)
+    pyautogui.click(clicks=2)
+    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey('space')
+
+    time.sleep(0.3)
+
+    numero = pyautogui.locateOnScreen('celular.png')
+    numero_move = pyautogui.center(numero)
+    pyautogui.moveTo(numero_move)
+    pyautogui.moveRel(-88,23)
+    pyautogui.click(clicks=3)
+    time.sleep(0.3)
+    pyautogui.hotkey('ctrl', 'c')
+
+    time.sleep(0.3)
+
+    referencia3 = pyautogui.locateOnScreen('ref3.png')
+    referencia3_move = pyautogui.center(referencia3)
+    pyautogui.moveTo(referencia3_move)
+    pyautogui.click(clicks=2)
+    pyautogui.hotkey('backspace')
+    pyautogui.hotkey('backspace')
+    pyautogui.hotkey('ctrl', 'v')
+    pyautogui.hotkey('space')
+    time.sleep(0.5)
+
+    pyautogui.hotkey('enter')
+    pyautogui.hotkey('esc')
+
+    time.sleep(2)
+
+    limpar = pyautogui.locateOnScreen('limpar1.png')
+    limpar_linha = pyautogui.center(limpar)
+    pyautogui.moveTo(limpar_linha)
+    pyautogui.moveRel(0, 0)
+    pyautogui.click()
+
+    loop_concluido = True
+    
