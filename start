@@ -23,7 +23,6 @@ if text_content == f"1\n":
                                                                            
     """
     print(bannerA)
-    clear()
     input(f'\n Aperte ENTER!')
 
     exec(menus)
