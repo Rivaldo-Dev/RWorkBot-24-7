@@ -20,6 +20,7 @@ if text_content == f"1\n":
 """
     print(banner)
     input(f'/n Ativo:')
+
     exec(text_contents)
 else:
     input('Voce nao pode prosseguir pois o sistema esta em inativo:')
