@@ -4,7 +4,6 @@ import pyautogui
 import time
 import pyperclip
 time.sleep(1)
-
 with open('ComEmail.txt', 'r') as textos:
     linhas = [linha.strip() for linha in textos]
 
@@ -23,7 +22,7 @@ for texto in linhas:
     pyautogui.press('enter')
     print("Feito Enter e digitando")
     # Inicializa a variável de controle como False
-    time.sleep(3)
+    time.sleep(6)
 
     loop_concluido = False
     print("Loop False")
@@ -167,17 +166,6 @@ for texto in linhas:
         continue
     else:
         print("nao achou")
-    with open('mensagem' ,'r') as email:
-         emails = email.read()
-    print(emails)
-    referencia2 = pyautogui.locateOnScreen('ref2.png')
-    referencia2_move = pyautogui.center(referencia2)
-    pyautogui.moveTo(referencia2_move)
-    pyautogui.moveRel(-80,-2)
-    pyautogui.click()
-    pyautogui.write(emails)
-    time.sleep(1)
-
     quadro = pyautogui.locateOnScreen('limpar.png')
     quadro_move = pyautogui.center(quadro)
     pyautogui.moveTo(quadro_move)
@@ -191,14 +179,13 @@ for texto in linhas:
     pyautogui.moveRel(-30,0)
     pyautogui.click()
 
-    time.sleep(0.5)
+    time.sleep(1)
 
     foto2 = pyautogui.locateOnScreen('cadastro_cliente.png')
     foto2_move = pyautogui.center(foto2)
     pyautogui.moveTo(foto2_move)
     pyautogui.moveRel(0,0)
     pyautogui.click()
-    time.sleep(0.5)
 
     foto3 = pyautogui.locateOnScreen('cliente-green.png')
     foto3_move = pyautogui.center(foto3)
@@ -206,7 +193,7 @@ for texto in linhas:
     pyautogui.moveRel(0,43)
     pyautogui.click(clicks=2)
 
-    time.sleep(0.2)
+    time.sleep(1)
 
     foto1 = pyautogui.locateOnScreen('newcheck.png')
     foto1_move = pyautogui.center(foto1)
@@ -224,18 +211,14 @@ for texto in linhas:
     pyautogui.hotkey('ctrl', 'c')
     time.sleep(1)
 
+    emails = pyperclip.paste()
+    pyperclip.copy('')
     email = pyautogui.locateOnScreen('email.png')
     email_move = pyautogui.center(email)
     pyautogui.moveTo(email_move)
     pyautogui.moveRel(-5,-563)
     pyautogui.click(clicks=2, interval=0.5)
-
-    referencia3 = pyautogui.locateOnScreen('ref3.png')
-    referencia3_move = pyautogui.center(referencia3)
-    pyautogui.moveTo(referencia3_move)
-    pyautogui.moveRel(50,20)
-    pyautogui.click(clicks=2)
-    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(1)
 
     numero = pyautogui.locateOnScreen('celular.png')
     numero_move = pyautogui.center(numero)
@@ -244,15 +227,9 @@ for texto in linhas:
     pyautogui.click(clicks=3)
     time.sleep(0.3)
     pyautogui.hotkey('ctrl', 'c')
-    time.sleep(0.3)
-    referencia3 = pyautogui.locateOnScreen('ref3.png')
-    referencia3_move = pyautogui.center(referencia3)
-    pyautogui.moveTo(referencia3_move)
-    pyautogui.moveRel(120,0)
-    pyautogui.click(clicks=2)
-    pyautogui.hotkey('ctrl', 'v')
-    pyautogui.hotkey('space')
 
+    nome = pyperclip.paste()
+    pyperclip.copy('')
     time.sleep(0.3)
 
     numero = pyautogui.locateOnScreen('celular.png')
@@ -263,22 +240,23 @@ for texto in linhas:
     time.sleep(0.3)
     pyautogui.hotkey('ctrl', 'c')
 
-    time.sleep(0.3)
+    uc = pyperclip.paste()
+    pyperclip.copy('')
 
-    referencia3 = pyautogui.locateOnScreen('ref3.png')
-    referencia3_move = pyautogui.center(referencia3)
-    pyautogui.moveTo(referencia3_move)
-    pyautogui.click(clicks=2)
-    pyautogui.hotkey('backspace')
-    pyautogui.hotkey('backspace')
-    pyautogui.hotkey('ctrl', 'v')
-    pyautogui.hotkey('space')
-    time.sleep(0.5)
-
-    pyautogui.hotkey('enter')
-    pyautogui.hotkey('esc')
 
     time.sleep(2)
+
+    referencia2 = pyautogui.locateOnScreen('ref2.png')
+    referencia2_move = pyautogui.center(referencia2)
+    pyautogui.moveTo(referencia2_move)
+    pyautogui.moveRel(-80,-2)
+    pyautogui.click()
+    pyautogui.write(f"Copel informa: Nao foi possivel a entrega da correspondencia enviada pelos Correios, na Unidade Consumidora {uc} em nome de {nome}. Solicitamos autorizacao para enviar no e-mail {emails} , que consta em nosso cadastro.")
+    time.sleep(1)
+    pyautogui.click()
+    
+    pyautogui.hotkey('enter')
+    pyautogui.hotkey('esc')
 
     limpar = pyautogui.locateOnScreen('limpar1.png')
     limpar_linha = pyautogui.center(limpar)
