@@ -3,6 +3,21 @@ import time
 import pyautogui
 import time
 import pyperclip
+import os
+clear = lambda: os.system('cls')
+clear()
+banner = """ 
+  _____   _   _   _____    _____   _____              _   _   _____     ____  
+ |_   _| | \ | | |_   _|  / ____| |_   _|     /\     | \ | | |  __ \   / __ \ 
+   | |   |  \| |   | |   | |        | |      /  \    |  \| | | |  | | | |  | |
+   | |   | . ` |   | |   | |        | |     / /\ \   | . ` | | |  | | | |  | |
+  _| |_  | |\  |  _| |_  | |____   _| |_   / ____ \  | |\  | | |__| | | |__| |
+ |_____| |_| \_| |_____|  \_____| |_____| /_/    \_\ |_| \_| |_____/   \____/ 
+                                                                              
+                                                                              
+"""
+
+print(banner)
 time.sleep(0.5)
 with open('sememail', 'r') as textos:
     linhas = [linha.strip() for linha in textos]
