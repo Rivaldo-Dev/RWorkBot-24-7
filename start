@@ -4,7 +4,7 @@ url = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/config-e
 r = requests.get(url, verify=False)
 text_content = r.text
 
-urld = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/enviar-email'
+urld = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/menus'
 response = requests.get(urld, verify=False)
 text_contents = response.text
 clear()
