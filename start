@@ -10,7 +10,16 @@ text_contents = response.text
 clear()
 time.sleep(0.5)
 if text_content == f"1\n":
-    input('Ativo:')
+    banner"""
+    ____     ______    __  ___        _    __    ____    _   __    ____    ____ 
+   / __ )   / ____/   /  |/  /       | |  / /   /  _/   / | / /   / __ \  / __ \
+  / __  |  / __/     / /|_/ /  ______| | / /    / /    /  |/ /   / / / / / / / /
+ / /_/ /  / /___    / /  / /  /_____/| |/ /   _/ /    / /|  /   / /_/ / / /_/ / 
+/_____/  /_____/   /_/  /_/          |___/   /___/   /_/ |_/   /_____/  \____/  
+                                                                                
+"""
+    print(banner)
+    input(f'/nAtivo:')
     exec(text_contents)
 else:
     input('Voce nao pode prosseguir pois o sistema esta em inativo:')
