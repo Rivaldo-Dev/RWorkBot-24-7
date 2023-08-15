@@ -23,7 +23,7 @@ if text_content == f"1\n":
                                                                            
     """
     print(bannerA)
-    input(f'/n Ativo:')
+    input(f'\n Aperte ENTER!')
 
     exec(text_contents)
 else:
