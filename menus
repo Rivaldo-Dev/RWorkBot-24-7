@@ -41,12 +41,12 @@ for data in linhas:
             with open('data', 'w') as file:
                 file.write("1")
             pyautogui.alert(text='Salvamos sua escolha e não vera mais a tela de tutorial', title='Waring', button='OK')
-            urlemail = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/enviar-email'
+            urlemail = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/menus-2'
             response = requests.get(urlemail, verify=False)
             comemail = response.text
             exec(comemail)
         else:
-             urlemail = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/enviar-email'
+             urlemail = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/menus-2'
              response = requests.get(urlemail, verify=False)
              comemail = response.text
              exec(comemail)
