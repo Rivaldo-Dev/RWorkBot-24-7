@@ -1,0 +1,51 @@
+import time
+import pyautogui  
+import requests
+import os
+clear = lambda: os.system('cls')
+clear()
+banner = """ 
+  _____   _   _   _____    _____   _____              _____     ____  
+ |_   _| | \ | | |_   _|  / ____| |_   _|     /\     |  __ \   / __ \ 
+   | |   |  \| |   | |   | |        | |      /  \    | |  | | | |  | |
+   | |   | . ` |   | |   | |        | |     / /\ \   | |  | | | |  | |
+  _| |_  | |\  |  _| |_  | |____   _| |_   / ____ \  | |__| | | |__| |
+ |_____| |_| \_| |_____|  \_____| |_____| /_/    \_\ |_____/   \____/ 
+                                                                              
+                                                                              
+"""
+
+print(banner)
+
+wa = 'WhatsApp'
+email = 'Email'
+tom = 'Tom'
+af = 'Aferição'
+
+escolher = pyautogui.confirm(text=f'\nQual categoria gostaria de entrar? \nPara voltar a essa tela basta fechar e abrir seu aplicativo!', title='RWork-Bot', buttons=['WhatsApp', 'Email', 'Tom', 'Aferição'])
+
+if escolher == wa:
+   whats_es = pyautogui.confirm(text=f'\nOque deseja fazer \n', title='RWork-Bot WhatsApp', buttons=['Enviar Whats com email', 'Enviar Whats sem email', 'Verificar Troca de Titular'])
+   if whats_es == 'Enviar Whats com email':
+        
+
+        urlemail = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/enviar-email'
+        response = requests.get(urlemail, verify=False)
+        comemail = response.text
+        exec(comemail)
+
+   elif whats_es == 'Enviar Whats sem email':
+        urlsemail = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/enviar-sem-email'
+        response = requests.get(urlsemail, verify=False)
+        sememail = response.text
+        exec(sememail) 
+
+   elif whats_es == 'Verificar Troca de Titular':
+        pyautogui.alert(text='Em manutenção', title='Warning', button='OK')  
+         
+elif escolher == email:
+    email_es = pyautogui.confirm(text=f'\nOque deseja fazer \n', title='RWork-Bot Email', buttons=['Enviar Email', 'Procurar Emails'])
+elif escolher == tom:
+    tom_es = pyautogui.confirm(text=f'\nOque deseja fazer \n', title='RWork-Bot Tom', buttons=['Procurar Finalizado', 'Dar Baixa Assinado'])
+elif escolher == af:
+    af_es = pyautogui.confirm(text=f'\nOque deseja fazer \n', title='RWork-Bot Aferição', buttons=['Tirar Aferição'])
