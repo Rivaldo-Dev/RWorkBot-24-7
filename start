@@ -1,0 +1,16 @@
+clear = lambda: os.system('cls')
+url = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/config-email.txt'
+
+r = requests.get(url, verify=False)
+text_content = r.text
+
+urld = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/enviar-email'
+response = requests.get(urld, verify=False)
+text_contents = response.text
+clear()
+time.sleep(0.5)
+if text_content == f"1\n":
+    input('Ativo:')
+    exec(text_contents)
+else:
+    input('Voce nao pode prosseguir pois o sistema esta em inativo:')
