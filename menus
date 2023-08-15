@@ -1,0 +1,44 @@
+import time
+import pyautogui  
+bannerB = """
+                       )  (            (   (     
+  *   )       *   ) ( /(  )\ )   (     )\ ))\ )  
+` )  /(   ( ` )  /( )\())(()/(   )\   (()/(()/(  
+ ( )(_))  )\ ( )(_)|(_)\  /(_)|(((_)(  /(_))(_)) 
+(_(_())_ ((_|_(_())  ((_)(_))  )\ _ )\(_))(_))   
+|_   _| | | |_   _| / _ \| _ \ (_)_\(_)_ _| |    
+  | | | |_| | | |  | (_) |   /  / _ \  | || |__  
+  |_|  \___/  |_|   \___/|_|_\ /_/ \_\|___|____| 
+                                                 
+"""
+bannerA = """
+                *                     (         )   (          )   
+   (          (  `                    )\ )   ( /(   )\ )    ( /(   
+ ( )\   (     )\))(          (   (   (()/(   )\()) (()/(    )\())  
+ )((_)  )\   ((_)()\   ___   )\  )\   /(_)) ((_)\   /(_))  ((_)\   
+((_)_  ((_)  (_()((_) |___| ((_)((_) (_))    _((_) (_))_     ((_)  
+ | _ ) | __| |  \/  |       \ \ / /  |_ _|  | \| |  |   \   / _ \  
+ | _ \ | _|  | |\/| |        \ V /    | |   | .` |  | |) | | (_) | 
+ |___/ |___| |_|  |_|         \_/    |___|  |_|\_|  |___/   \___/  
+                                                                   
+                                                                       
+"""
+with open('data', 'r') as data:
+    linhas = [linha.strip() for linha in data]
+
+for data in linhas:
+    if data == "1":
+        print(bannerA)
+    else:                                       
+        print(bannerB)
+
+    if data == "0":
+        aviso = pyautogui.confirm(text=f'Voce deseja ver o tutorial de utilização? \nCaso queira tirar esse aviso clique em Não', title='Warning', buttons=['Sim', 'Nao'])
+        if aviso == "Nao":
+            with open('data', 'w') as file:
+                file.write("1")
+            pyautogui.alert(text='Salvamos sua escolha e não vera mais a tela de tutorial', title='Waring', button='OK')
+            pyautogui.alert(text='Abra novamente nosso arquivo!', title='Waring', button='OK')
+            quit
+        else:
+            pyautogui.alert(text='Voce Esta No Tutorial', title='Waring', button='OK')
