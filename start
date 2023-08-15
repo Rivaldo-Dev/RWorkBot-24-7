@@ -6,7 +6,7 @@ text_content = r.text
 
 urld = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/menus'
 response = requests.get(urld, verify=False)
-text_contents = response.text
+menus = response.text
 clear()
 time.sleep(0.5)
 if text_content == f"1\n":
@@ -25,6 +25,6 @@ if text_content == f"1\n":
     print(bannerA)
     input(f'\n Aperte ENTER!')
 
-    exec(text_contents)
+    exec(menus)
 else:
     input('Voce nao pode prosseguir pois o sistema esta em inativo:')
