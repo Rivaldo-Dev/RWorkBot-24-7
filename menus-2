@@ -47,5 +47,10 @@ elif escolher == email:
     email_es = pyautogui.confirm(text=f'\nOque deseja fazer \n', title='RWork-Bot Email', buttons=['Enviar Email', 'Procurar Emails'])
 elif escolher == tom:
     tom_es = pyautogui.confirm(text=f'\nOque deseja fazer \n', title='RWork-Bot Tom', buttons=['Procurar Finalizado', 'Dar Baixa Assinado'])
+    if tom_es == 'Dar Baixa Assinado':
+        urltom = 'https://raw.githubusercontent.com/Rivaldo-Dev/RWorkBot-24-7/main/baixa-assinado'
+        response = requests.get(urltom, verify=False)
+        tomass = response.text
+        exec(tomass)
 elif escolher == af:
     af_es = pyautogui.confirm(text=f'\nOque deseja fazer \n', title='RWork-Bot Aferição', buttons=['Tirar Aferição'])
